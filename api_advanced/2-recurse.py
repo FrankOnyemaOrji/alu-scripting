@@ -21,9 +21,9 @@ def recurse(subreddit, after='', hot_list=[], page_count=0):
         after = json_data.get('data').get('after')
         if after is not None:
 
-            page_counter += 1
+            page_count += 1
             return recurse(subreddit, after=after,
-                           hot_list=hot_list, page_counter=page_counter)
+                           hot_list=hot_list, page_count=page_count)
         else:
             return hot_list
 
