@@ -3,7 +3,7 @@
 import requests
 
 
-def recurse(subreddit, after='', hot_list=[], page_count=0):
+def recurse(subreddit, after="", hot_list=[], page_count=0):
     """Function that queries the Reddit API."""
     url = "https://www.reddit.com/r/{}/hot.json" \
         .format(subreddit)
