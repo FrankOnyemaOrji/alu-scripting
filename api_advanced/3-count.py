@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 """Module for count_words function"""
-import requests
+
 import json
+import requests
 
 
 def count_words(subreddit, word_list, after='', hot_list=[]):
     """Function that queries the Reddit API."""
     if after == '':
-        hot_list = [] * len(word_list)
+        hot_list = [0] * len(word_list)
     url = "https://www.reddit.com/r/{}/hot.json" \
         .format(subreddit)
     request = requests.get(url, params={'after': after},
