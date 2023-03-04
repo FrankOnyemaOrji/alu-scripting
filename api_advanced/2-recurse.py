@@ -2,14 +2,15 @@
 """Module for recurse function"""
 import requests
 
+headers = {'User-Agent': 'MyAPI/0.0.1'}
+
 
 def recurse(subreddit, after="", hot_list=[], page_count=0):
-    """Function that queries the Reddit API."""
-    url = "https://www.reddit.com/r/{}/hot.json" \
-        .format(subreddit)
-    headers = {'User-Agent': 'My User Agent 1.0'}
-    response = requests.get(url, headers=headers, parmas=params)
-    params = {'limit': 100, 'after': after}
+
+    subreddit_url = "https://reddit.com/r/{}/hot.json".format(subreddit)
+
+    parameters = {'limit': 100, 'after': after}
+    response = requests.get(subreddit_url, headers=headers, params=parameters)
 
     if response.status_code == 200:
         json_data = response.json()
